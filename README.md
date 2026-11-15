@@ -46,9 +46,9 @@ NAI решава два проблема:
 | Слой | Избор |
 |---|---|
 | Backend | Node.js + TypeScript, Fastify, Zod, Drizzle ORM |
-| LLM | Anthropic Claude през Vercel AI SDK (`ai` + `@ai-sdk/anthropic`); `@anthropic-ai/sdk` само ако AI SDK още не поддържа нещо нужно |
+| LLM | Anthropic Claude през Vercel AI SDK; `@anthropic-ai/sdk` само ако AI SDK още не поддържа нещо нужно |
 | Разпознаване на реч | Whisper като отделен Docker контейнер |
-| Embeddings | `intfloat/multilingual-e5-small` локално в Node чрез Transformers.js (`@huggingface/transformers`) |
+| Embeddings | `intfloat/multilingual-e5-small` локално с Transformers.js |
 | База данни | PostgreSQL + pgvector |
 | Хранителни данни | USDA FoodData Central |
 | Frontend | PWA: React + Vite + TypeScript, `vite-plugin-pwa` |
@@ -91,7 +91,7 @@ git clone https://github.com/Alexxx2207/NutritionAI && cd NutritionAI
 # 2. Конфигурация: попълнете стойностите в .env
 cp .env.example .env
 
-# 3. Стартиране (първият път сваля USDA данните, модела за реч и embeddings)
+# 3. Стартиране (първият път сваля модела за реч и модела за embeddings)
 docker compose up --build
 
 # 4. (еднократно) импорт на USDA данните и индексиране на хранителните препоръки
@@ -99,7 +99,7 @@ docker compose exec backend pnpm run import:usda
 docker compose exec backend pnpm run index:guidelines
 ```
 
-**Приложение:** http://localhost:3000
+** Frontend приложение:** http://localhost:3000
 
 **От телефон:** телефонът трябва да е в същата мрежа. Отворете `https://<IP-на-компютъра>` (HTTPS е нужен за микрофона), после от менюто на браузъра изберете „Add to Home Screen“, за да инсталирате приложението.
 
