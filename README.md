@@ -99,7 +99,7 @@ docker compose exec backend pnpm run import:usda
 docker compose exec backend pnpm run index:guidelines
 ```
 
-** Frontend приложение:** http://localhost:3000
+**Frontend приложение:** http://localhost:3000
 
 **От телефон:** телефонът трябва да е в същата мрежа. Отворете `https://<IP-на-компютъра>` (HTTPS е нужен за микрофона), после от менюто на браузъра изберете „Add to Home Screen“, за да инсталирате приложението.
 
